@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Task</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:Inter;
+background:#0b1220;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.card{
+background:#1e293b;
+padding:32px;
+border-radius:24px;
+width:380px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.4);
+position:relative;
+}
+
+/* 🔊 кнопка сверху */
+.speak-btn{
+background:#3b82f6;
+border:none;
+border-radius:10px;
+padding:8px 12px;
+color:white;
+cursor:pointer;
+font-size:14px;
+margin-bottom:10px;
+}
+
+.progress{
+opacity:0.7;
+margin-bottom:10px;
+font-weight:600;
+}
+
+h2{
+margin:20px 0;
+font-size:20px;
+line-height:1.4;
+}
+
+input{
+width:100%;
+padding:14px;
+border-radius:12px;
+border:none;
+outline:none;
+text-align:center;
+font-size:16px;
+}
+
+.opt{
+display:block;
+margin:10px 0;
+padding:12px;
+background:#334155;
+border-radius:12px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.opt:hover{
+background:#475569;
+transform:scale(1.02);
+}
+
+button{
+margin-top:18px;
+width:100%;
+padding:14px;
+background:#22c55e;
+color:white;
+border:none;
+border-radius:14px;
+font-weight:700;
+cursor:pointer;
+transition:0.2s;
+}
+
+button:hover{
+background:#16a34a;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<!-- 🔊 ВОТ ТУТ ПЕРЕНЕСЕНО ВВЕРХ -->
+<button class="speak-btn" onclick="speakQuestion()">🔊 Listen</button>
+
+<div class="progress">{{ num }}/10</div>
+
+<form method="post">
+
+<h2 id="question-text">
+{% if task.word %}
+Translate this word:
+<br><b>{{ task.word }}</b>
+{% else %}
+{{ task.question }}
+{% endif %}
+</h2>
+
+{% if task.type == "input" %}
+<input name="answer" autocomplete="off" placeholder="Type your answer">
+
+{% elif task.type == "choice" %}
+{% for o in task.options %}
+<label class="opt">
+<input type="radio" name="answer" value="{{ o }}">
+{{ o }}
+</label>
+{% endfor %}
+{% endif %}
+
+<button>Continue</button>
+
+</form>
+
+</div>
+
+<script>
+function speakQuestion(){
+    let text = document.getElementById("question-text").innerText;
+    speechSynthesis.cancel();
+    let u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    u.rate = 0.9;
+    speechSynthesis.speak(u);
+}
+</script>
+
+</body>
+</html>

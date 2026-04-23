@@ -1,0 +1,61 @@
+[
+  { "question": "The letter ___ by the manager yesterday.", "answer": "was written", "options": ["wrote", "was written", "is written", "writes"] },
+  { "question": "If I ___ you, I would accept the offer.", "answer": "were", "options": ["was", "were", "am", "be"] },
+  { "question": "She said that she ___ tired.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "The house ___ when we arrived.", "answer": "was being cleaned", "options": ["was cleaning", "was being cleaned", "is cleaning", "cleaned"] },
+  { "question": "He ___ have arrived by now.", "answer": "should", "options": ["should", "must", "can", "will"] },
+
+  { "question": "If they ___ earlier, they would have caught the train.", "answer": "had left", "options": ["left", "had left", "leave", "leaving"] },
+  { "question": "The report ___ by tomorrow.", "answer": "will have been completed", "options": ["will be completed", "will have been completed", "is completed", "completed"] },
+  { "question": "She told me that she ___ the movie before.", "answer": "had seen", "options": ["saw", "has seen", "had seen", "sees"] },
+  { "question": "He ___ to finish the project on time.", "answer": "is expected", "options": ["expects", "is expected", "expected", "expecting"] },
+  { "question": "The food ___ by the chef right now.", "answer": "is being prepared", "options": ["is preparing", "is being prepared", "was prepared", "prepares"] },
+
+  { "question": "If I ___ more time, I would travel the world.", "answer": "had", "options": ["have", "had", "has", "having"] },
+  { "question": "She said she ___ coming later.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "The book ___ by millions of people.", "answer": "has been read", "options": ["is read", "has been read", "was reading", "reads"] },
+  { "question": "He ___ have forgotten about the meeting.", "answer": "might", "options": ["must", "might", "will", "can"] },
+  { "question": "They said they ___ working on the project.", "answer": "were", "options": ["are", "was", "were", "be"] },
+
+  { "question": "The window ___ broken during the storm.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "If she ___ harder, she would succeed.", "answer": "worked", "options": ["works", "worked", "working", "work"] },
+  { "question": "He told me he ___ seen her before.", "answer": "had", "options": ["has", "had", "have", "is"] },
+  { "question": "The problem ___ solved by the team.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "She ___ be at home now.", "answer": "must", "options": ["must", "should", "can", "will"] },
+
+  { "question": "If they ___ invited, they would have come.", "answer": "had been", "options": ["were", "had been", "are", "be"] },
+  { "question": "The car ___ being repaired now.", "answer": "is", "options": ["is", "was", "are", "be"] },
+  { "question": "He said he ___ busy.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "The project ___ finished by next week.", "answer": "will be", "options": ["will be", "was", "is", "has been"] },
+  { "question": "She ___ have known the answer.", "answer": "should", "options": ["should", "must", "can", "will"] },
+
+  { "question": "The documents ___ signed yesterday.", "answer": "were", "options": ["are", "was", "were", "be"] },
+  { "question": "If I ___ you, I would not do that.", "answer": "were", "options": ["was", "were", "am", "be"] },
+  { "question": "He said that he ___ to Paris before.", "answer": "had been", "options": ["was", "had been", "has been", "is"] },
+  { "question": "The house ___ being built at the moment.", "answer": "is", "options": ["is", "was", "are", "be"] },
+  { "question": "They ___ have finished already.", "answer": "must", "options": ["must", "can", "will", "should"] },
+
+  { "question": "If she ___ earlier, she would have met him.", "answer": "had arrived", "options": ["arrived", "had arrived", "arrives", "arriving"] },
+  { "question": "The letter ___ sent yesterday.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "He said he ___ working late.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "The film ___ directed by a famous director.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "She ___ have left already.", "answer": "might", "options": ["must", "might", "will", "can"] },
+
+  { "question": "The report ___ being checked now.", "answer": "is", "options": ["is", "was", "are", "be"] },
+  { "question": "If they ___ harder, they would succeed.", "answer": "worked", "options": ["work", "worked", "working", "works"] },
+  { "question": "He told me he ___ not coming.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "The task ___ completed already.", "answer": "has been", "options": ["is", "was", "has been", "had been"] },
+  { "question": "She ___ be tired after the trip.", "answer": "must", "options": ["must", "can", "will", "should"] },
+
+  { "question": "If I ___ rich, I would buy a house.", "answer": "were", "options": ["was", "were", "am", "be"] },
+  { "question": "The room ___ cleaned yesterday.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "He said he ___ already done it.", "answer": "had", "options": ["has", "had", "have", "is"] },
+  { "question": "The food ___ prepared now.", "answer": "is being", "options": ["is", "was", "is being", "has been"] },
+  { "question": "They ___ have known about it.", "answer": "should", "options": ["should", "must", "can", "will"] },
+
+  { "question": "If she ___ the truth, she would be angry.", "answer": "knew", "options": ["knows", "knew", "knowing", "know"] },
+  { "question": "The meeting ___ postponed.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "He said he ___ seen the accident.", "answer": "had", "options": ["has", "had", "have", "is"] },
+  { "question": "The house ___ being renovated.", "answer": "is", "options": ["is", "was", "are", "be"] },
+  { "question": "She ___ have arrived already.", "answer": "might", "options": ["must", "might", "will", "can"] }
+]

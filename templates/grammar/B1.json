@@ -1,0 +1,61 @@
+[
+  { "question": "I ___ my homework before dinner yesterday.", "answer": "finished", "options": ["finish", "finished", "finishing", "finishes"] },
+  { "question": "She ___ working here since 2020.", "answer": "has been", "options": ["has been", "have been", "was", "is"] },
+  { "question": "They ___ to London next week.", "answer": "will go", "options": ["go", "goes", "will go", "went"] },
+  { "question": "If it ___ tomorrow, we will stay home.", "answer": "rains", "options": ["rain", "rains", "rained", "raining"] },
+  { "question": "He ___ already left the office.", "answer": "has", "options": ["have", "has", "had", "is"] },
+
+  { "question": "I ___ never been to Paris.", "answer": "have", "options": ["have", "has", "had", "am"] },
+  { "question": "She ___ dinner when I arrived.", "answer": "was cooking", "options": ["cooks", "cooked", "was cooking", "is cooking"] },
+  { "question": "They ___ football every Sunday.", "answer": "play", "options": ["play", "plays", "played", "playing"] },
+  { "question": "He ___ to school by bus yesterday.", "answer": "went", "options": ["go", "goes", "went", "gone"] },
+  { "question": "We ___ English for five years.", "answer": "have studied", "options": ["study", "studies", "have studied", "studied"] },
+
+  { "question": "I ___ you if I see him.", "answer": "will tell", "options": ["tell", "tells", "will tell", "told"] },
+  { "question": "She ___ in London for 3 years.", "answer": "has lived", "options": ["lives", "lived", "has lived", "is living"] },
+  { "question": "They ___ TV when I called them.", "answer": "were watching", "options": ["watch", "watched", "were watching", "are watching"] },
+  { "question": "He ___ a car last year.", "answer": "bought", "options": ["buy", "buys", "bought", "buying"] },
+  { "question": "We ___ to the cinema tomorrow.", "answer": "will go", "options": ["go", "goes", "went", "will go"] },
+
+  { "question": "If I ___ money, I would travel.", "answer": "had", "options": ["have", "has", "had", "having"] },
+  { "question": "She ___ just finished her work.", "answer": "has", "options": ["have", "has", "had", "is"] },
+  { "question": "They ___ dinner at 7 pm yesterday.", "answer": "had", "options": ["have", "has", "had", "having"] },
+  { "question": "He ___ playing football now.", "answer": "is", "options": ["am", "is", "are", "be"] },
+  { "question": "We ___ seen that movie before.", "answer": "have", "options": ["have", "has", "had", "did"] },
+
+  { "question": "I ___ my keys yesterday.", "answer": "lost", "options": ["lose", "loses", "lost", "losing"] },
+  { "question": "She ___ reading a book when I came.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "They ___ already left.", "answer": "have", "options": ["have", "has", "had", "are"] },
+  { "question": "He ___ to school every day.", "answer": "goes", "options": ["go", "goes", "went", "going"] },
+  { "question": "We ___ a new house next year.", "answer": "will buy", "options": ["buy", "buys", "bought", "will buy"] },
+
+  { "question": "If she ___ hard, she will pass the exam.", "answer": "studies", "options": ["study", "studies", "studied", "studying"] },
+  { "question": "I ___ at home yesterday evening.", "answer": "was", "options": ["am", "was", "were", "be"] },
+  { "question": "They ___ football last weekend.", "answer": "played", "options": ["play", "plays", "played", "playing"] },
+  { "question": "He ___ already eaten.", "answer": "has", "options": ["have", "has", "had", "is"] },
+  { "question": "We ___ studying English now.", "answer": "are", "options": ["am", "is", "are", "be"] },
+
+  { "question": "I ___ you later.", "answer": "will call", "options": ["call", "calls", "called", "will call"] },
+  { "question": "She ___ working here since 2019.", "answer": "has been", "options": ["has been", "have been", "was", "is"] },
+  { "question": "They ___ dinner when I arrived.", "answer": "were having", "options": ["have", "had", "were having", "has"] },
+  { "question": "He ___ to Paris last year.", "answer": "went", "options": ["go", "goes", "went", "gone"] },
+  { "question": "We ___ English every day.", "answer": "study", "options": ["study", "studies", "studied", "studying"] },
+
+  { "question": "I ___ never seen this film.", "answer": "have", "options": ["have", "has", "had", "am"] },
+  { "question": "She ___ a doctor in the future.", "answer": "will be", "options": ["is", "was", "will be", "be"] },
+  { "question": "They ___ playing outside now.", "answer": "are", "options": ["am", "is", "are", "be"] },
+  { "question": "He ___ home yesterday.", "answer": "went", "options": ["go", "goes", "went", "gone"] },
+  { "question": "We ___ lunch at 2 pm.", "answer": "had", "options": ["have", "has", "had", "having"] },
+
+  { "question": "If I ___ time, I will help you.", "answer": "have", "options": ["have", "has", "had", "having"] },
+  { "question": "She ___ TV every evening.", "answer": "watches", "options": ["watch", "watches", "watched", "watching"] },
+  { "question": "They ___ already finished.", "answer": "have", "options": ["have", "has", "had", "are"] },
+  { "question": "He ___ reading now.", "answer": "is", "options": ["am", "is", "are", "be"] },
+  { "question": "We ___ to school tomorrow.", "answer": "will go", "options": ["go", "goes", "went", "will go"] },
+
+  { "question": "I ___ breakfast at 8 am.", "answer": "have", "options": ["have", "has", "had", "having"] },
+  { "question": "She ___ in a bank.", "answer": "works", "options": ["work", "works", "worked", "working"] },
+  { "question": "They ___ football yesterday.", "answer": "played", "options": ["play", "plays", "played", "playing"] },
+  { "question": "He ___ just arrived.", "answer": "has", "options": ["have", "has", "had", "is"] },
+  { "question": "We ___ at home yesterday.", "answer": "were", "options": ["are", "was", "were", "be"] }
+]

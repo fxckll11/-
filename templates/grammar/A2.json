@@ -1,0 +1,67 @@
+[
+  { "question": "I ___ TV yesterday.", "answer": "watched", "options": ["watch", "watched", "watching", "watches"] },
+  { "question": "She ___ to school every day.", "answer": "goes", "options": ["go", "goes", "gone", "going"] },
+  { "question": "They ___ football now.", "answer": "are playing", "options": ["play", "plays", "are playing", "played"] },
+  { "question": "He ___ a book last night.", "answer": "read", "options": ["read", "reads", "reading", "readed"] },
+  { "question": "We ___ dinner at 7 pm yesterday.", "answer": "had", "options": ["have", "has", "had", "having"] },
+
+  { "question": "I ___ my homework every day.", "answer": "do", "options": ["do", "does", "did", "doing"] },
+  { "question": "She ___ music now.", "answer": "is listening", "options": ["listens", "listened", "is listening", "listen"] },
+  { "question": "They ___ in London.", "answer": "live", "options": ["live", "lives", "lived", "living"] },
+  { "question": "He ___ his phone yesterday.", "answer": "lost", "options": ["lose", "lost", "loses", "losing"] },
+  { "question": "We ___ to school by bus.", "answer": "go", "options": ["go", "goes", "gone", "going"] },
+
+  { "question": "I ___ English at school.", "answer": "study", "options": ["study", "studies", "studied", "studying"] },
+  { "question": "She ___ a car.", "answer": "has", "options": ["have", "has", "had", "having"] },
+  { "question": "They ___ at home yesterday.", "answer": "were", "options": ["are", "was", "were", "be"] },
+  { "question": "He ___ TV every evening.", "answer": "watches", "options": ["watch", "watches", "watched", "watching"] },
+  { "question": "We ___ a movie last night.", "answer": "watched", "options": ["watch", "watched", "watching", "watches"] },
+
+  { "question": "I ___ a letter now.", "answer": "am writing", "options": ["write", "writes", "am writing", "wrote"] },
+  { "question": "She ___ to music yesterday.", "answer": "listened", "options": ["listen", "listens", "listened", "listening"] },
+  { "question": "They ___ football every Sunday.", "answer": "play", "options": ["play", "plays", "played", "playing"] },
+  { "question": "He ___ breakfast at 8 am.", "answer": "has", "options": ["have", "has", "had", "having"] },
+  { "question": "We ___ happy yesterday.", "answer": "were", "options": ["was", "were", "are", "be"] },
+
+  { "question": "I ___ my friend yesterday.", "answer": "met", "options": ["meet", "met", "meets", "meeting"] },
+  { "question": "She ___ in a big city.", "answer": "lives", "options": ["live", "lives", "lived", "living"] },
+  { "question": "They ___ TV now.", "answer": "are watching", "options": ["watch", "watched", "are watching", "watches"] },
+  { "question": "He ___ a car last year.", "answer": "bought", "options": ["buy", "buys", "bought", "buying"] },
+  { "question": "We ___ English at school.", "answer": "learn", "options": ["learn", "learns", "learned", "learning"] },
+
+  { "question": "I ___ to the park yesterday.", "answer": "went", "options": ["go", "goes", "went", "going"] },
+  { "question": "She ___ her homework now.", "answer": "is doing", "options": ["do", "does", "did", "is doing"] },
+  { "question": "They ___ dinner at 6 pm.", "answer": "have", "options": ["have", "has", "had", "having"] },
+  { "question": "He ___ tired yesterday.", "answer": "was", "options": ["is", "was", "were", "be"] },
+  { "question": "We ___ football now.", "answer": "are playing", "options": ["play", "played", "are playing", "plays"] },
+
+  { "question": "I ___ my keys yesterday.", "answer": "found", "options": ["find", "finds", "found", "finding"] },
+  { "question": "She ___ a book now.", "answer": "is reading", "options": ["reads", "read", "is reading", "reading"] },
+  { "question": "They ___ in school.", "answer": "study", "options": ["study", "studies", "studied", "studying"] },
+  { "question": "He ___ to music every day.", "answer": "listens", "options": ["listen", "listens", "listened", "listening"] },
+  { "question": "We ___ at home yesterday.", "answer": "were", "options": ["are", "was", "were", "be"] },
+
+  { "question": "I ___ coffee in the morning.", "answer": "drink", "options": ["drink", "drinks", "drank", "drinking"] },
+  { "question": "She ___ a dog.", "answer": "has", "options": ["have", "has", "had", "having"] },
+  { "question": "They ___ a movie yesterday.", "answer": "watched", "options": ["watch", "watched", "watching", "watches"] },
+  { "question": "He ___ football now.", "answer": "is playing", "options": ["play", "plays", "is playing", "played"] },
+  { "question": "We ___ English every day.", "answer": "study", "options": ["study", "studies", "studied", "studying"] },
+
+  { "question": "I ___ a letter yesterday.", "answer": "wrote", "options": ["write", "writes", "wrote", "writing"] },
+  { "question": "She ___ in London.", "answer": "lives", "options": ["live", "lives", "lived", "living"] },
+  { "question": "They ___ football yesterday.", "answer": "played", "options": ["play", "plays", "played", "playing"] },
+  { "question": "He ___ TV now.", "answer": "is watching", "options": ["watch", "watched", "is watching", "watches"] },
+  { "question": "We ___ breakfast at 8.", "answer": "have", "options": ["have", "has", "had", "having"] },
+
+  { "question": "I ___ my friend now.", "answer": "am meeting", "options": ["meet", "met", "am meeting", "meets"] },
+  { "question": "She ___ a car yesterday.", "answer": "bought", "options": ["buy", "buys", "bought", "buying"] },
+  { "question": "They ___ at school now.", "answer": "are", "options": ["am", "is", "are", "be"] },
+  { "question": "He ___ a book every night.", "answer": "reads", "options": ["read", "reads", "reading", "readed"] },
+  { "question": "We ___ to music now.", "answer": "are listening", "options": ["listen", "listens", "are listening", "listened"] },
+
+  { "question": "I ___ my homework yesterday.", "answer": "did", "options": ["do", "does", "did", "doing"] },
+  { "question": "She ___ happy now.", "answer": "is", "options": ["am", "is", "are", "be"] },
+  { "question": "They ___ TV every night.", "answer": "watch", "options": ["watch", "watches", "watched", "watching"] },
+  { "question": "He ___ football yesterday.", "answer": "played", "options": ["play", "plays", "played", "playing"] },
+  { "question": "We ___ in school now.", "answer": "are", "options": ["am", "is", "are", "be"] }
+]

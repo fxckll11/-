@@ -1,0 +1,55 @@
+[
+  { "question": "Rarely ___ such a difficult problem been seen.", "answer": "has", "options": ["has", "have", "had", "is"] },
+  { "question": "Had I known the truth, I ___ acted differently.", "answer": "would have", "options": ["would have", "will have", "had", "have"] },
+  { "question": "It is essential that he ___ on time.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "She insisted that he ___ present at the meeting.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "No sooner ___ I arrived than the meeting started.", "answer": "had", "options": ["have", "had", "was", "did"] },
+
+  { "question": "Under no circumstances ___ you open this door.", "answer": "should", "options": ["should", "must", "can", "will"] },
+  { "question": "Only after the meeting ___ the decision announced.", "answer": "was", "options": ["is", "was", "were", "has"] },
+  { "question": "Hardly ___ I entered the room when the phone rang.", "answer": "had", "options": ["have", "had", "was", "did"] },
+  { "question": "It is important that she ___ informed immediately.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "Were he to arrive late, we ___ start without him.", "answer": "would", "options": ["will", "would", "can", "should"] },
+
+  { "question": "She behaves as if she ___ everything.", "answer": "knew", "options": ["knows", "knew", "know", "known"] },
+  { "question": "The report must ___ by tomorrow.", "answer": "be completed", "options": ["complete", "be completed", "completed", "completing"] },
+  { "question": "Not only ___ he late, but he was also unprepared.", "answer": "was", "options": ["is", "was", "were", "has"] },
+  { "question": "It is high time you ___ responsibility.", "answer": "took", "options": ["take", "took", "taken", "taking"] },
+  { "question": "She suggested that he ___ more careful.", "answer": "be", "options": ["is", "be", "was", "are"] },
+
+  { "question": "Had it not rained, we ___ the match.", "answer": "would have won", "options": ["will win", "would win", "would have won", "won"] },
+  { "question": "Seldom ___ such talent been observed.", "answer": "has", "options": ["has", "have", "had", "is"] },
+  { "question": "The manager demanded that the report ___ immediately.", "answer": "be submitted", "options": ["submit", "be submitted", "submitted", "submitting"] },
+  { "question": "He acts as though he ___ the owner.", "answer": "were", "options": ["is", "was", "were", "be"] },
+  { "question": "Only when I saw it myself ___ I believe it.", "answer": "did", "options": ["do", "did", "have", "was"] },
+
+  { "question": "It is crucial that the system ___ updated regularly.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "Little ___ he know about the consequences.", "answer": "did", "options": ["does", "did", "has", "was"] },
+  { "question": "She recommended that he ___ a doctor.", "answer": "see", "options": ["sees", "see", "saw", "seeing"] },
+  { "question": "Had she studied harder, she ___ the exam.", "answer": "would have passed", "options": ["would pass", "will pass", "would have passed", "passed"] },
+  { "question": "Never before ___ such chaos been seen.", "answer": "has", "options": ["has", "have", "had", "is"] },
+
+  { "question": "The proposal requires that it ___ carefully reviewed.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "Should you need help, you ___ contact support.", "answer": "can", "options": ["can", "must", "should", "will"] },
+  { "question": "No sooner ___ the news than everyone reacted.", "answer": "had", "options": ["have", "had", "was", "did"] },
+  { "question": "It is vital that he ___ informed.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "She speaks English as if she ___ a native.", "answer": "were", "options": ["is", "was", "were", "be"] },
+
+  { "question": "Were I you, I ___ accept the offer.", "answer": "would", "options": ["will", "would", "can", "should"] },
+  { "question": "The document must ___ signed immediately.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "It is recommended that he ___ rest.", "answer": "take", "options": ["takes", "take", "took", "taking"] },
+  { "question": "Only after the meeting ___ the truth revealed.", "answer": "was", "options": ["is", "was", "were", "has"] },
+  { "question": "Hardly ___ she arrived when it started.", "answer": "had", "options": ["has", "had", "was", "did"] },
+
+  { "question": "The manager insisted that the work ___ finished.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "If only I ___ more time.", "answer": "had", "options": ["have", "had", "has", "having"] },
+  { "question": "It is necessary that he ___ present.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "She behaves as though nothing ___ happened.", "answer": "had", "options": ["has", "had", "have", "is"] },
+  { "question": "Never again ___ I trust him.", "answer": "will", "options": ["will", "would", "can", "did"] },
+
+  { "question": "The report ___ to the board tomorrow.", "answer": "will be submitted", "options": ["is submitted", "was submitted", "will be submitted", "submits"] },
+  { "question": "It is important that she ___ careful.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "Had I seen him, I ___ spoken to him.", "answer": "would have", "options": ["would have", "will have", "had", "have"] },
+  { "question": "Rarely ___ such a situation occur.", "answer": "does", "options": ["does", "did", "has", "is"] },
+  { "question": "She demanded that he ___ the truth.", "answer": "tell", "options": ["tells", "tell", "told", "telling"] }
+]

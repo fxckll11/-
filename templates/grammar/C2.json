@@ -1,0 +1,49 @@
+[
+  { "question": "Had the results been different, the decision ___ reconsidered.", "answer": "would have been", "options": ["would have been", "will be", "was", "is"] },
+  { "question": "Not only ___ the agreement signed, but it was also enforced immediately.", "answer": "was", "options": ["is", "was", "were", "has"] },
+  { "question": "Under no circumstances ___ the data be shared externally.", "answer": "should", "options": ["should", "must", "can", "will"] },
+  { "question": "It is imperative that the system ___ updated without delay.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "Rarely ___ such complex issues handled so efficiently.", "answer": "have", "options": ["has", "have", "had", "is"] },
+
+  { "question": "Were the conditions different, the outcome ___ changed.", "answer": "would have been", "options": ["would be", "would have been", "will be", "was"] },
+  { "question": "No sooner ___ the announcement made than reactions followed.", "answer": "was", "options": ["was", "had", "did", "has"] },
+  { "question": "It is crucial that every applicant ___ evaluated fairly.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "Hardly ___ the meeting started when problems arose.", "answer": "had", "options": ["has", "had", "was", "did"] },
+  { "question": "She speaks as though she ___ the entire process.", "answer": "understood", "options": ["understands", "understood", "understand", "understanding"] },
+
+  { "question": "The report ___ to have been completed earlier.", "answer": "is said", "options": ["is said", "was said", "says", "said"] },
+  { "question": "Had I known earlier, I ___ intervened.", "answer": "would have", "options": ["would have", "will have", "had", "have"] },
+  { "question": "It is essential that the findings ___ verified independently.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "Seldom ___ such precision required.", "answer": "is", "options": ["is", "was", "has", "are"] },
+  { "question": "The results ___ to be reviewed by experts.", "answer": "are expected", "options": ["is expected", "are expected", "expected", "expects"] },
+
+  { "question": "Were the data accurate, the conclusion ___ different.", "answer": "would be", "options": ["would be", "would have been", "will be", "was"] },
+  { "question": "The committee demanded that the proposal ___ revised.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "Not until the end ___ the truth revealed.", "answer": "was", "options": ["is", "was", "were", "has"] },
+  { "question": "He acts as if he ___ all the answers.", "answer": "knew", "options": ["knows", "knew", "know", "known"] },
+  { "question": "It is unlikely that the issue ___ resolved quickly.", "answer": "will be", "options": ["is", "was", "will be", "has been"] },
+
+  { "question": "Had the policy been implemented, results ___ improved.", "answer": "would have been", "options": ["would be", "would have been", "will be", "were"] },
+  { "question": "The document ___ to be confidential.", "answer": "is considered", "options": ["considers", "is considered", "considered", "consider"] },
+  { "question": "Only after extensive analysis ___ conclusions drawn.", "answer": "were", "options": ["are", "was", "were", "is"] },
+  { "question": "She behaves as though nothing ___ happened.", "answer": "had", "options": ["has", "had", "have", "is"] },
+  { "question": "It is vital that all participants ___ informed in advance.", "answer": "be", "options": ["is", "be", "was", "are"] },
+
+  { "question": "The findings ___ to have been misinterpreted.", "answer": "are believed", "options": ["is believed", "are believed", "believe", "believed"] },
+  { "question": "Had it not been for the delay, the project ___ completed.", "answer": "would have been", "options": ["would be", "would have been", "will be", "was"] },
+  { "question": "Little ___ known about the consequences at the time.", "answer": "was", "options": ["is", "was", "has", "are"] },
+  { "question": "The results must ___ validated before publication.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "He speaks as though he ___ the author of the theory.", "answer": "were", "options": ["is", "was", "were", "be"] },
+
+  { "question": "Were the system more efficient, costs ___ reduced.", "answer": "would be", "options": ["would be", "would have been", "will be", "was"] },
+  { "question": "The agreement ___ to have been violated.", "answer": "is alleged", "options": ["alleges", "is alleged", "alleged", "alleging"] },
+  { "question": "No sooner ___ the decision made than criticism followed.", "answer": "was", "options": ["was", "had", "did", "has"] },
+  { "question": "It is recommended that the procedure ___ followed strictly.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "She talks as if she ___ everything in advance.", "answer": "knew", "options": ["knows", "knew", "know", "known"] },
+
+  { "question": "Had the circumstances been different, outcomes ___ changed significantly.", "answer": "would have been", "options": ["would be", "would have been", "will be", "were"] },
+  { "question": "The data ___ to suggest a different trend.", "answer": "are believed", "options": ["is believed", "are believed", "believes", "believed"] },
+  { "question": "Under no circumstances ___ this information be disclosed.", "answer": "should", "options": ["should", "must", "can", "will"] },
+  { "question": "It is essential that the model ___ tested thoroughly.", "answer": "be", "options": ["is", "be", "was", "are"] },
+  { "question": "Rarely ___ such consistency observed.", "answer": "is", "options": ["is", "was", "has", "are"] }
+]

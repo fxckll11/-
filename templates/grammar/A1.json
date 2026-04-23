@@ -1,0 +1,79 @@
+[
+  { "question": "I ___ a student.", "answer": "am", "options": ["am", "is", "are", "be"] },
+  { "question": "She ___ happy today.", "answer": "is", "options": ["am", "is", "are", "be"] },
+  { "question": "They ___ at school.", "answer": "are", "options": ["am", "is", "are", "be"] },
+  { "question": "He ___ football every day.", "answer": "plays", "options": ["play", "plays", "playing", "played"] },
+  { "question": "We ___ to music.", "answer": "listen", "options": ["listen", "listens", "listening", "listened"] },
+
+  { "question": "I ___ coffee in the morning.", "answer": "drink", "options": ["drink", "drinks", "drank", "drinking"] },
+  { "question": "She ___ a book now.", "answer": "reads", "options": ["read", "reads", "reading", "readed"] },
+  { "question": "They ___ in a big house.", "answer": "live", "options": ["live", "lives", "lived", "living"] },
+  { "question": "He ___ TV every evening.", "answer": "watches", "options": ["watch", "watches", "watching", "watched"] },
+  { "question": "We ___ English at school.", "answer": "study", "options": ["study", "studies", "studied", "studying"] },
+
+  { "question": "I ___ my friend every day.", "answer": "see", "options": ["see", "sees", "seeing", "saw"] },
+  { "question": "She ___ a car.", "answer": "has", "options": ["have", "has", "had", "having"] },
+  { "question": "He ___ a dog.", "answer": "has", "options": ["have", "has", "had", "having"] },
+  { "question": "They ___ happy.", "answer": "are", "options": ["am", "is", "are", "be"] },
+  { "question": "I ___ tired.", "answer": "am", "options": ["am", "is", "are", "be"] },
+
+  { "question": "She ___ to school by bus.", "answer": "goes", "options": ["go", "goes", "going", "gone"] },
+  { "question": "We ___ football on Sunday.", "answer": "play", "options": ["play", "plays", "played", "playing"] },
+  { "question": "He ___ his homework.", "answer": "does", "options": ["do", "does", "doing", "done"] },
+  { "question": "I ___ my room.", "answer": "clean", "options": ["clean", "cleans", "cleaned", "cleaning"] },
+  { "question": "They ___ lunch at 1 pm.", "answer": "have", "options": ["have", "has", "had", "having"] },
+
+  { "question": "She ___ in London.", "answer": "lives", "options": ["live", "lives", "lived", "living"] },
+  { "question": "He ___ to school.", "answer": "goes", "options": ["go", "goes", "gone", "going"] },
+  { "question": "I ___ a pen.", "answer": "have", "options": ["have", "has", "had", "having"] },
+  { "question": "They ___ in class.", "answer": "sit", "options": ["sit", "sits", "sat", "sitting"] },
+  { "question": "We ___ English.", "answer": "speak", "options": ["speak", "speaks", "spoke", "speaking"] },
+
+  { "question": "She ___ music.", "answer": "likes", "options": ["like", "likes", "liked", "liking"] },
+  { "question": "He ___ a teacher.", "answer": "is", "options": ["am", "is", "are", "be"] },
+  { "question": "I ___ to school.", "answer": "go", "options": ["go", "goes", "going", "gone"] },
+  { "question": "They ___ friends.", "answer": "are", "options": ["am", "is", "are", "be"] },
+  { "question": "We ___ in the park.", "answer": "walk", "options": ["walk", "walks", "walked", "walking"] },
+
+  { "question": "She ___ a car.", "answer": "drives", "options": ["drive", "drives", "driving", "drove"] },
+  { "question": "He ___ breakfast.", "answer": "eats", "options": ["eat", "eats", "eating", "ate"] },
+  { "question": "I ___ water.", "answer": "drink", "options": ["drink", "drinks", "drank", "drinking"] },
+  { "question": "They ___ in school.", "answer": "study", "options": ["study", "studies", "studied", "studying"] },
+  { "question": "We ___ TV.", "answer": "watch", "options": ["watch", "watches", "watched", "watching"] },
+
+  { "question": "She ___ a cat.", "answer": "has", "options": ["have", "has", "had", "having"] },
+  { "question": "He ___ home.", "answer": "goes", "options": ["go", "goes", "gone", "going"] },
+  { "question": "I ___ happy.", "answer": "am", "options": ["am", "is", "are", "be"] },
+  { "question": "They ___ books.", "answer": "read", "options": ["read", "reads", "reading", "readed"] },
+  { "question": "We ___ together.", "answer": "study", "options": ["study", "studies", "studied", "studying"] },
+
+  { "question": "She ___ music.", "answer": "listens", "options": ["listen", "listens", "listened", "listening"] },
+  { "question": "He ___ fast.", "answer": "runs", "options": ["run", "runs", "running", "ran"] },
+  { "question": "I ___ my phone.", "answer": "use", "options": ["use", "uses", "used", "using"] },
+  { "question": "They ___ games.", "answer": "play", "options": ["play", "plays", "played", "playing"] },
+  { "question": "We ___ lunch.", "answer": "have", "options": ["have", "has", "had", "having"] },
+
+  { "question": "She ___ in school.", "answer": "studies", "options": ["study", "studies", "studied", "studying"] },
+  { "question": "He ___ a bike.", "answer": "has", "options": ["have", "has", "had", "having"] },
+  { "question": "I ___ English.", "answer": "learn", "options": ["learn", "learns", "learned", "learning"] },
+  { "question": "They ___ food.", "answer": "eat", "options": ["eat", "eats", "eating", "ate"] },
+  { "question": "We ___ in class.", "answer": "sit", "options": ["sit", "sits", "sat", "sitting"] },
+
+  { "question": "She ___ happy.", "answer": "is", "options": ["am", "is", "are", "be"] },
+  { "question": "He ___ home.", "answer": "goes", "options": ["go", "goes", "gone", "going"] },
+  { "question": "I ___ a friend.", "answer": "have", "options": ["have", "has", "had", "having"] },
+  { "question": "They ___ together.", "answer": "are", "options": ["am", "is", "are", "be"] },
+  { "question": "We ___ football.", "answer": "play", "options": ["play", "plays", "played", "playing"] },
+
+  { "question": "She ___ tea.", "answer": "drinks", "options": ["drink", "drinks", "drank", "drinking"] },
+  { "question": "He ___ music.", "answer": "likes", "options": ["like", "likes", "liked", "liking"] },
+  { "question": "I ___ to school.", "answer": "go", "options": ["go", "goes", "gone", "going"] },
+  { "question": "They ___ TV.", "answer": "watch", "options": ["watch", "watches", "watched", "watching"] },
+  { "question": "We ___ books.", "answer": "read", "options": ["read", "reads", "reading", "readed"] },
+
+  { "question": "She ___ a student.", "answer": "is", "options": ["am", "is", "are", "be"] },
+  { "question": "He ___ lunch.", "answer": "has", "options": ["have", "has", "had", "having"] },
+  { "question": "I ___ in school.", "answer": "study", "options": ["study", "studies", "studied", "studying"] },
+  { "question": "They ___ friends.", "answer": "are", "options": ["am", "is", "are", "be"] },
+  { "question": "We ___ music.", "answer": "listen", "options": ["listen", "listens", "listened", "listening"] }
+]
