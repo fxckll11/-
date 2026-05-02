@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,125 +8,167 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+
 body{
 margin:0;
 font-family:Inter;
-background:#0b1220;
+background:linear-gradient(135deg,#6366f1,#22c55e);
 color:white;
 display:flex;
-justify-content:center;
+flex-direction:column;
 align-items:center;
 height:100vh;
 }
 
-.card{
-background:#1e293b;
-padding:32px;
-border-radius:24px;
-width:380px;
-text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,0.4);
+/* ===== TOP BAR ===== */
+.top{
+width:100%;
+padding:20px;
+display:flex;
+justify-content:center;
 position:relative;
 }
 
-/* 🔊 кнопка сверху */
-.speak-btn{
-background:#3b82f6;
-border:none;
+.progress{
+width:60%;
+height:10px;
+background:rgba(255,255,255,0.3);
 border-radius:10px;
-padding:8px 12px;
-color:white;
-cursor:pointer;
-font-size:14px;
-margin-bottom:10px;
+overflow:hidden;
 }
 
-.progress{
-opacity:0.7;
-margin-bottom:10px;
+.fill{
+height:100%;
+background:#22c55e;
+width:{{ (num/10)*100 }}%;
+}
+
+/* back */
+.back{
+position:absolute;
+left:20px;
+top:15px;
+background:white;
+color:black;
+padding:8px 12px;
+border-radius:10px;
+text-decoration:none;
 font-weight:600;
 }
 
-h2{
-margin:20px 0;
-font-size:20px;
-line-height:1.4;
+/* ===== CARD ===== */
+.card{
+margin-top:40px;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:25px;
+width:400px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
 }
 
+/* question */
+.question{
+font-size:22px;
+font-weight:700;
+margin-bottom:20px;
+}
+
+/* speak button */
+.speak{
+margin-bottom:15px;
+padding:8px 12px;
+border:none;
+border-radius:10px;
+background:#22c55e;
+color:white;
+cursor:pointer;
+}
+
+/* options */
+.opt{
+display:block;
+margin:10px 0;
+padding:14px;
+background:rgba(255,255,255,0.2);
+border-radius:12px;
+cursor:pointer;
+transition:0.2s;
+text-align:left;
+}
+
+.opt:hover{
+background:white;
+color:black;
+transform:scale(1.03);
+}
+
+/* input */
 input{
 width:100%;
 padding:14px;
 border-radius:12px;
 border:none;
-outline:none;
 text-align:center;
 font-size:16px;
+outline:none;
 }
 
-.opt{
-display:block;
-margin:10px 0;
-padding:12px;
-background:#334155;
-border-radius:12px;
-cursor:pointer;
-transition:0.2s;
-}
-
-.opt:hover{
-background:#475569;
-transform:scale(1.02);
-}
-
+/* button */
 button{
-margin-top:18px;
+margin-top:20px;
 width:100%;
 padding:14px;
-background:#22c55e;
-color:white;
 border:none;
 border-radius:14px;
+background:#22c55e;
+color:white;
 font-weight:700;
+font-size:16px;
 cursor:pointer;
 transition:0.2s;
 }
 
 button:hover{
+transform:scale(1.05);
 background:#16a34a;
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- ===== TOP ===== -->
+<div class="top">
+
+<a href="/" class="back">⬅</a>
+
+<div class="progress">
+<div class="fill"></div>
+</div>
+
+</div>
+
+<!-- ===== TASK ===== -->
 <div class="card">
-
-<!-- 🔊 ВОТ ТУТ ПЕРЕНЕСЕНО ВВЕРХ -->
-<button class="speak-btn" onclick="speakQuestion()">🔊 Listen</button>
-
-<div class="progress">{{ num }}/10</div>
 
 <form method="post">
 
-<h2 id="question-text">
-{% if task.word %}
-Translate this word:
-<br><b>{{ task.word }}</b>
+<div class="question">{{ task.question }}</div>
+
+<!-- 🔊 озвучка -->
+<button type="button" class="speak" onclick="speak('{{ task.question }}')">🔊 Listen</button>
+
+{% if task.type == "choice" %}
+    {% for o in task.options %}
+    <label class="opt">
+        <input type="radio" name="answer" value="{{ o }}"> {{ o }}
+    </label>
+    {% endfor %}
 {% else %}
-{{ task.question }}
-{% endif %}
-</h2>
-
-{% if task.type == "input" %}
-<input name="answer" autocomplete="off" placeholder="Type your answer">
-
-{% elif task.type == "choice" %}
-{% for o in task.options %}
-<label class="opt">
-<input type="radio" name="answer" value="{{ o }}">
-{{ o }}
-</label>
-{% endfor %}
+    <input name="answer" placeholder="Type your answer..." autocomplete="off">
 {% endif %}
 
 <button>Continue</button>
@@ -134,14 +177,14 @@ Translate this word:
 
 </div>
 
+<!-- JS -->
 <script>
-function speakQuestion(){
-    let text = document.getElementById("question-text").innerText;
+function speak(text){
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.lang = "en-US";
+    msg.rate = 0.9;
     speechSynthesis.cancel();
-    let u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-US";
-    u.rate = 0.9;
-    speechSynthesis.speak(u);
+    speechSynthesis.speak(msg);
 }
 </script>
 
