@@ -7,104 +7,100 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+
 body{
 margin:0;
 font-family:Inter;
-background:#0f172a;
+background:linear-gradient(135deg,#22c55e,#4f46e5);
 color:white;
-}
-
-.top{
-position:fixed;
-top:15px;
-left:15px;
 display:flex;
+justify-content:center;
 align-items:center;
-gap:10px;
-background:#1e293b;
-padding:10px 14px;
-border-radius:14px;
+min-height:100vh;
 }
 
-.bar{
-width:140px;
-height:10px;
-background:#334155;
-border-radius:10px;
-overflow:hidden;
-}
-
-.fill{
-height:100%;
-background:#22c55e;
-}
-
-.container{
-max-width:700px;
-margin:auto;
-padding:80px 20px;
-}
-
+/* card */
 .card{
-background:#1e293b;
-padding:15px;
-border-radius:14px;
-margin-bottom:10px;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:25px;
+width:420px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* score */
+.score{
+font-size:60px;
+font-weight:800;
+margin:20px 0;
+}
+
+/* xp */
+.xp{
+background:#22c55e;
+padding:10px;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+/* answers */
+.answers{
+text-align:left;
+max-height:250px;
+overflow:auto;
+margin-top:15px;
+}
+
+.item{
+background:rgba(255,255,255,0.1);
+padding:10px;
+border-radius:10px;
+margin-bottom:8px;
 }
 
 .ok{border-left:5px solid #22c55e;}
 .bad{border-left:5px solid #ef4444;}
 
-.title{
-text-align:center;
-font-size:28px;
-margin-bottom:10px;
-}
-
-.score{
-text-align:center;
-font-size:45px;
-color:#22c55e;
-font-weight:800;
-}
-
-.btn{
-display:block;
-text-align:center;
+button{
 margin-top:20px;
-padding:14px;
+padding:12px;
+width:100%;
+border:none;
+border-radius:12px;
 background:#3b82f6;
 color:white;
-text-decoration:none;
-border-radius:12px;
+font-weight:700;
+cursor:pointer;
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="top">
-<div class="bar">
-<div class="fill"
-style="width: {{ (progress.translation_done + progress.grammar_done) * 2 }}%"></div>
-</div>
-<div>{{ level }}</div>
-</div>
+<div class="card">
 
-<div class="container">
+<h2>🎉 Result</h2>
 
-<div class="title">Result</div>
 <div class="score">{{ score }}/10</div>
 
+<div class="xp">+{{ xp }} XP</div>
+
+<div class="answers">
 {% for r in results %}
-<div class="card {{ 'ok' if r.ok else 'bad' }}">
-<div><b>{{ r.question }}</b></div>
-<div>Your: {{ r.user }}</div>
-<div>Correct: {{ r.correct }}</div>
+<div class="item {% if r.ok %}ok{% else %}bad{% endif %}">
+<b>{{ r.question }}</b><br>
+You: {{ r.user }}<br>
+Correct: {{ r.correct }}
 </div>
 {% endfor %}
+</div>
 
-<a class="btn" href="/">Main Menu</a>
+<form action="/">
+<button>Main Menu</button>
+</form>
 
 </div>
 
