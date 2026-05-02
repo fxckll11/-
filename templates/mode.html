@@ -2,59 +2,97 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mode</title>
+<title>Choose Mode</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+
 body{
-background:#0f172a;
-color:white;
+margin:0;
 font-family:Inter;
+background:linear-gradient(135deg,#6366f1,#22c55e);
+color:white;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
-margin:0;
 }
 
+/* container */
+.container{
+display:flex;
+gap:20px;
+}
+
+/* card */
 .card{
-background:#1e293b;
-padding:25px;
-border-radius:20px;
-width:350px;
-text-align:center;
+width:220px;
+height:200px;
+border-radius:25px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-decoration:none;
+color:white;
+font-weight:700;
+font-size:20px;
+transition:0.25s;
+box-shadow:0 20px 40px rgba(0,0,0,0.3);
 }
 
-.btn{
-display:block;
-margin:10px;
-padding:14px;
-background:#3b82f6;
-border-radius:14px;
-color:white;
+/* colors */
+.translation{
+background:linear-gradient(135deg,#3b82f6,#06b6d4);
+}
+
+.grammar{
+background:linear-gradient(135deg,#22c55e,#4ade80);
+}
+
+/* hover */
+.card:hover{
+transform:scale(1.1) rotate(-1deg);
+}
+
+/* icon */
+.icon{
+font-size:40px;
+margin-bottom:10px;
+}
+
+/* back */
+.back{
+position:fixed;
+top:20px;
+right:20px;
+background:white;
+color:black;
+padding:10px 15px;
+border-radius:10px;
 text-decoration:none;
 font-weight:600;
 }
 
-.back{
-display:block;
-margin-top:10px;
-color:#94a3b8;
-text-decoration:none;
-}
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<a href="/" class="back">⬅</a>
 
-<h2>{{ level }}</h2>
+<div class="container">
 
-<!-- ❗ ВАЖНО -->
-<a class="btn" href="/mode/translation">Translation</a>
-<a class="btn" href="/mode/grammar">Grammar</a>
+<a href="/mode/translation" class="card translation">
+<div class="icon">🌍</div>
+Translation
+</a>
 
-<a class="back" href="/">← Back</a>
+<a href="/mode/grammar" class="card grammar">
+<div class="icon">📘</div>
+Grammar
+</a>
 
 </div>
 
