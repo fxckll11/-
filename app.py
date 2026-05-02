@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, redirect
-import random, json, re, datetime, time
+import random, json, re, datetime
 
 app = Flask(__name__)
 app.secret_key = "secret123"
@@ -20,30 +20,36 @@ def load_grammar(level):
         return json.load(f)
 
 
-# ================= DAILY =================
+LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
+
+
+# ================= INIT DAILY =================
 def init_daily():
     today = str(datetime.date.today())
 
     if session.get("daily_date") != today:
         session["daily_date"] = today
         session["daily"] = {"q1": False, "q2": False, "q3": False}
+        session["level_lock"] = False
+        session["study_start"] = None
 
 
 # ================= HOME =================
 @app.route("/")
 def index():
-
     init_daily()
 
-    progress = session.get("progress", {
-        "translation_done": 0,
-        "grammar_done": 0
-    })
+    progress = session.get("progress") or {"grammar": 0, "translation": 0}
+
+    grammar = progress["grammar"]
+    translation = progress["translation"]
+
+    percent = int(((grammar + translation) / 50) * 100)
 
     return render_template(
         "index.html",
-        progress=progress,
         level=session.get("level", "A1"),
+        percent=percent,
         daily=session.get("daily")
     )
 
@@ -66,106 +72,61 @@ def mode(mode):
     session["score"] = 0
     session["results"] = []
 
-    session.setdefault("progress", {
-        "translation_done": 0,
-        "grammar_done": 0
-    })
-
     tasks = []
 
-    try:
+    if mode == "translation":
 
-        # ================= TRANSLATION =================
-        if mode == "translation":
+        words = load_words(level)
+        keys = list(words.keys())
+        random.shuffle(keys)
 
-            words = load_words(level)
-            keys = list(words.keys())
+        for w in keys[:5]:
+            correct = words[w]["translations"][0]
 
-            if len(keys) < 10:
-                keys = keys * 2
+            options = [correct]
+            while len(options) < 4:
+                val = words[random.choice(keys)]["translations"][0]
+                if val not in options:
+                    options.append(val)
 
-            random.shuffle(keys)
+            random.shuffle(options)
 
-            selected = keys[:10]
-            half = 5
+            tasks.append({
+                "type": "choice",
+                "question": f"Translate: {w}",
+                "answer": correct,
+                "options": options
+            })
 
-            # ===== 5 TEST =====
-            for w in selected[:half]:
+        for w in keys[5:10]:
+            tasks.append({
+                "type": "input",
+                "question": f"Translate: {w}",
+                "answer": words[w]["translations"][0]
+            })
 
-                correct = words[w]["translations"][0]
+    else:
 
-                wrong_pool = [k for k in keys if k in words and k != w]
-                wrong = random.sample(wrong_pool, min(3, len(wrong_pool)))
+        data = load_grammar(level)
+        random.shuffle(data)
 
-                options = [words[x]["translations"][0] for x in wrong]
+        for t in data[:5]:
+            tasks.append({
+                "type": "choice",
+                "question": t["question"],
+                "answer": t["answer"],
+                "options": t["options"]
+            })
 
-                if correct not in options:
-                    options[0] = correct
+        for t in data[5:10]:
+            tasks.append({
+                "type": "input",
+                "question": t["question"],
+                "answer": t["answer"]
+            })
 
-                random.shuffle(options)
-
-                tasks.append({
-                    "type": "choice",
-                    "question": f"Translate: {w}",
-                    "answer": correct,
-                    "options": options
-                })
-
-            # ===== 5 INPUT =====
-            for w in selected[half:]:
-
-                correct = words[w]["translations"][0]
-
-                tasks.append({
-                    "type": "input",
-                    "question": f"Translate: {w}",
-                    "answer": correct
-                })
-
-        # ================= GRAMMAR =================
-        elif mode == "grammar":
-
-            data = load_grammar(level)
-
-            if len(data) < 10:
-                data = data * 2
-
-            selected = random.sample(data, 10)
-            half = 5
-
-            # ===== 5 TEST =====
-            for t in selected[:half]:
-
-                tasks.append({
-                    "type": "choice",
-                    "question": t.get("question", ""),
-                    "answer": t.get("answer", ""),
-                    "options": t.get("options", [
-                        t.get("answer", "is"),
-                        "is",
-                        "are",
-                        "was"
-                    ])
-                })
-
-            # ===== 5 INPUT =====
-            for t in selected[half:]:
-
-                tasks.append({
-                    "type": "input",
-                    "question": t.get("question", ""),
-                    "answer": t.get("answer", "")
-                })
-
-        else:
-            return redirect("/")
-
-        session["tasks"] = tasks
-        return redirect("/task")
-
-    except Exception as e:
-        print("MODE ERROR:", e)
-        return redirect("/")
+    session["tasks"] = tasks
+    return redirect("/task")
 
 
 # ================= TASK =================
@@ -188,13 +149,12 @@ def task():
         ok = False
 
         if task["type"] == "input":
-            if norm(ans) == norm(correct):
-                session["score"] += 1
-                ok = True
+            ok = norm(ans) == norm(correct)
         else:
-            if ans == correct:
-                session["score"] += 1
-                ok = True
+            ok = ans == correct
+
+        if ok:
+            session["score"] += 1
 
         session["results"].append({
             "question": task["question"],
@@ -213,61 +173,81 @@ def task():
 @app.route("/result")
 def result():
 
-    init_daily()
+    progress = session.get("progress") or {"grammar": 0, "translation": 0}
+
+    grammar = int(progress["grammar"])
+    translation = int(progress["translation"])
 
     level = session.get("level", "A1")
+    if level not in LEVELS:
+        level = "A1"
+        session["level"] = level
+
     score = session.get("score", 0)
+
+    # ================= XP =================
+    xp = score * 10
+
     mode = session.get("mode")
 
-    progress = session.get("progress")
+    # ================= UPDATE PROGRESS =================
+    if score == 10:
 
-    xp_gain = score * 10
-    daily = session.get("daily")
+        if mode == "grammar":
+            grammar += 1
 
-    if mode == "grammar":
-        daily["q1"] = True
-        xp_gain = int(xp_gain * 1.5)
+        if mode == "translation":
+            translation += 1
 
-    if mode == "translation":
-        daily["q2"] = True
-        xp_gain = int(xp_gain * 2)
+    session["progress"] = {
+        "grammar": grammar,
+        "translation": translation
+    }
 
-    if session.get("i", 0) >= 10:
-        daily["q3"] = True
-        xp_gain += 50
+    # ================= DAILY QUEST =================
+    daily = session.get("daily", {"q1": False, "q2": False, "q3": False})
+
+    start = session.get("study_start")
+    if start:
+        elapsed = datetime.datetime.now().timestamp() - start
+        if elapsed >= 600:
+            daily["q3"] = True
 
     session["daily"] = daily
 
-    if progress["translation_done"] >= 25 and progress["grammar_done"] >= 25:
+    # ================= SAFE LEVEL UP =================
+    current_index = LEVELS.index(level)
 
-        levels = ["A1","A2","B1","B2","C1","C2"]
+    if not session.get("level_lock", False):
 
-        idx = levels.index(level)
-        if idx < len(levels) - 1:
-            session["level"] = levels[idx + 1]
+        if grammar >= 25 and translation >= 25:
 
-            session["progress"] = {
-                "translation_done": 0,
-                "grammar_done": 0
-            }
+            if current_index < len(LEVELS) - 1:
+
+                session["level"] = LEVELS[current_index + 1]
+
+                session["progress"] = {
+                    "grammar": 0,
+                    "translation": 0
+                }
+
+                session["level_lock"] = True
 
     return render_template(
         "result.html",
         score=score,
-        results=session.get("results", []),
+        xp=xp,
+        results=session.get("results"),
         level=session.get("level"),
         progress=session.get("progress"),
-        xp=xp_gain,
-        daily=daily
+        daily=session.get("daily")
     )
 
 
 # ================= STUDY =================
 @app.route("/study")
 def study():
-    data = {}
-    for lvl in ["A1","A2","B1","B2","C1","C2"]:
-        data[lvl] = load_words(lvl)
+    data = {lvl: load_words(lvl) for lvl in LEVELS}
     return render_template("study.html", words=data)
 
 
@@ -277,6 +257,5 @@ def rules():
     return render_template("rules.html")
 
 
-# ================= RUN =================
 if __name__ == "__main__":
     app.run(debug=True)
