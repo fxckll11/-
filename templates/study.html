@@ -7,35 +7,43 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+
 body{
 margin:0;
 font-family:Inter;
-background:radial-gradient(circle at top,#1e293b,#0f172a);
+background:linear-gradient(135deg,#1e293b,#4f46e5);
 color:white;
 }
 
+/* back button */
 .back{
 position:fixed;
 top:20px;
 right:20px;
 padding:12px 18px;
-background:#3b82f6;
+background:#22c55e;
 border-radius:12px;
 color:white;
 text-decoration:none;
 font-weight:600;
 z-index:1000;
+transition:0.2s;
+}
+
+.back:hover{
+transform:scale(1.05);
+background:#16a34a;
 }
 
 .container{
-max-width:1100px;
+max-width:1200px;
 margin:auto;
 padding:90px 20px;
 }
 
 h1{
 text-align:center;
-font-size:34px;
+font-size:36px;
 margin-bottom:30px;
 }
 
@@ -48,49 +56,58 @@ color:#22c55e;
 margin-bottom:15px;
 }
 
+/* grid */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-gap:12px;
+grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+gap:15px;
 }
 
+/* word card */
 .word{
-background:rgba(255,255,255,0.05);
-padding:12px;
-border-radius:14px;
+background:rgba(255,255,255,0.1);
+padding:15px;
+border-radius:15px;
 text-align:center;
 transition:0.2s;
-position:relative;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 .word:hover{
 transform:scale(1.05);
-background:rgba(255,255,255,0.1);
+background:rgba(255,255,255,0.2);
 }
 
+/* text */
 .en{
-font-weight:700;
-font-size:16px;
+font-weight:800;
+font-size:18px;
 }
 
 .ru{
-opacity:0.7;
+opacity:0.8;
 margin-top:5px;
 font-size:14px;
 }
 
-.speaker{
-position:absolute;
-top:8px;
-right:8px;
-background:#22c55e;
+/* speak button */
+.speak{
+margin-top:10px;
+padding:8px 12px;
 border:none;
 border-radius:10px;
-padding:5px 8px;
-cursor:pointer;
-font-size:12px;
+background:#22c55e;
 color:white;
+cursor:pointer;
+font-size:16px;
+transition:0.2s;
 }
+
+.speak:hover{
+transform:scale(1.1);
+background:#16a34a;
+}
+
 </style>
 </head>
 
@@ -108,30 +125,32 @@ color:white;
 <h2>{{ level }}</h2>
 
 <div class="grid">
-
 {% for en, data in words.items() %}
 <div class="word">
-
-<button class="speaker" onclick="speak('{{ en }}')">▶</button>
 
 <div class="en">{{ en }}</div>
 <div class="ru">{{ data.translations[0] }}</div>
 
+<button class="speak" onclick="speak('{{ en }}')">🔊</button>
+
+</div>
+{% endfor %}
+</div>
+
 </div>
 {% endfor %}
 
 </div>
-</div>
-{% endfor %}
 
-</div>
-
+<!-- JS озвучка -->
 <script>
-function speak(text){
-    let utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "en-US";
-    utterance.rate = 0.9;
-    speechSynthesis.speak(utterance);
+function speak(word){
+    const msg = new SpeechSynthesisUtterance(word);
+    msg.lang = "en-US";
+    msg.rate = 0.9;
+    msg.pitch = 1;
+    speechSynthesis.cancel(); // чтобы не накладывались звуки
+    speechSynthesis.speak(msg);
 }
 </script>
 
