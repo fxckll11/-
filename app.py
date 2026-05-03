@@ -4,6 +4,8 @@ import random, json, re, datetime
 app = Flask(__name__)
 app.secret_key = "secret123"
 
+LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
+
 
 # ================= HELPERS =================
 def norm(t):
@@ -18,9 +20,6 @@ def load_words(level):
 def load_grammar(level):
     with open(f"templates/grammar/{level}.json", encoding="utf-8") as f:
         return json.load(f)
-
-
-LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 
 
 # ================= INIT DAILY =================
@@ -39,16 +38,19 @@ def init_daily():
 def index():
     init_daily()
 
-    progress = session.get("progress") or {"grammar": 0, "translation": 0}
+    if "level" not in session:
+        session["level"] = "A1"
 
-    grammar = progress["grammar"]
-    translation = progress["translation"]
+    progress = session.get("progress") or {"grammar": 0.0, "translation": 0.0}
+
+    grammar = float(progress.get("grammar", 0))
+    translation = float(progress.get("translation", 0))
 
     percent = int(((grammar + translation) / 50) * 100)
 
     return render_template(
         "index.html",
-        level=session.get("level", "A1"),
+        level=session["level"],
         percent=percent,
         daily=session.get("daily")
     )
@@ -57,7 +59,7 @@ def index():
 # ================= START =================
 @app.route("/start/<level>")
 def start(level):
-    session["level"] = level
+    session["test_level"] = level
     return render_template("mode.html", level=level)
 
 
@@ -65,7 +67,7 @@ def start(level):
 @app.route("/mode/<mode>")
 def mode(mode):
 
-    level = session.get("level", "A1")
+    level = session.get("test_level", session.get("level", "A1"))
 
     session["mode"] = mode
     session["i"] = 0
@@ -173,31 +175,33 @@ def task():
 @app.route("/result")
 def result():
 
-    progress = session.get("progress") or {"grammar": 0, "translation": 0}
+    progress = session.get("progress") or {"grammar": 0.0, "translation": 0.0}
 
-    grammar = int(progress["grammar"])
-    translation = int(progress["translation"])
+    grammar = float(progress.get("grammar", 0))
+    translation = float(progress.get("translation", 0))
 
     level = session.get("level", "A1")
-    if level not in LEVELS:
-        level = "A1"
-        session["level"] = level
+    test_level = session.get("test_level", level)
 
     score = session.get("score", 0)
 
     # ================= XP =================
-    xp = score * 10
+    xp = 0
+    if score >= 3:
+        xp = score * 10
 
     mode = session.get("mode")
 
-    # ================= UPDATE PROGRESS =================
-    if score == 10:
+    # ================= ПЛАВНЫЙ ПРОГРЕСС =================
+    if test_level == level:
+
+        add = score / 10
 
         if mode == "grammar":
-            grammar += 1
+            grammar += add
 
         if mode == "translation":
-            translation += 1
+            translation += add
 
     session["progress"] = {
         "grammar": grammar,
@@ -207,6 +211,14 @@ def result():
     # ================= DAILY QUEST =================
     daily = session.get("daily", {"q1": False, "q2": False, "q3": False})
 
+    # ✅ FIX: выполнение квестов
+    if mode == "grammar" and score >= 3:
+        daily["q1"] = True
+
+    if mode == "translation" and score >= 3:
+        daily["q2"] = True
+
+    # ✅ FIX: проверка 10 минут
     start = session.get("study_start")
     if start:
         elapsed = datetime.datetime.now().timestamp() - start
@@ -215,7 +227,7 @@ def result():
 
     session["daily"] = daily
 
-    # ================= SAFE LEVEL UP =================
+    # ================= LEVEL UP =================
     current_index = LEVELS.index(level)
 
     if not session.get("level_lock", False):
@@ -227,8 +239,8 @@ def result():
                 session["level"] = LEVELS[current_index + 1]
 
                 session["progress"] = {
-                    "grammar": 0,
-                    "translation": 0
+                    "grammar": 0.0,
+                    "translation": 0.0
                 }
 
                 session["level_lock"] = True
@@ -247,6 +259,10 @@ def result():
 # ================= STUDY =================
 @app.route("/study")
 def study():
+    # ✅ FIX: запуск таймера
+    if not session.get("study_start"):
+        session["study_start"] = datetime.datetime.now().timestamp()
+
     data = {lvl: load_words(lvl) for lvl in LEVELS}
     return render_template("study.html", words=data)
 
