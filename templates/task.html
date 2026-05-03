@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <title>Task</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+    
+
 
 body{
 margin:0;
@@ -55,6 +55,12 @@ border-radius:10px;
 text-decoration:none;
 font-weight:600;
 }
+
+
+
+
+
+
 
 /* ===== CARD ===== */
 .card{
@@ -134,6 +140,21 @@ button:hover{
 transform:scale(1.05);
 background:#16a34a;
 }
+
+
+@media(max-width:768px) {
+    .back {
+        padding: 35px;
+    }
+
+    .card {
+        margin-top: 200px;
+
+    }
+}
+
+
+
 
 </style>
 </head>
