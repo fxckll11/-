@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 
 
@@ -225,52 +224,12 @@ transform:scale(1.05);
 }
 
 
-
-
-@media (max-width: 768px) {
-
-/* ОБЩИЙ ЛАЙАУТ */
-body{
-flex-direction:column;
-height:auto;
-}
-
-/* ЛЕВАЯ + ПРАВАЯ ПАНЕЛЬ */
-.sidebar,
-.right{
-width:100%;
-height:auto;
-position:static;
-}
-
-/* ТЕКСТ И КНОПКИ */
-.item, .tense{
-font-size:14px;
-padding:12px;
-}
-
-/* МОДАЛКИ */
-.card{
-width:95%;
-top:10%;
-left:50%;
-transform:translate(-50%,0);
-max-height:85vh;
-}
-
-/* ТАБЛИЦЫ */
-table{
-font-size:12px;
-}
-
-/* КНОПКА "ГЛАВНОЕ МЕНЮ" */
-.home-btn{
-top:10px;
-right:10px;
-font-size:12px;
-padding:8px 10px;
-}
-
+@media(max-width:768px){
+    .home-btn{
+        top: 45px;
+        right: 100px;
+        padding:35px;
+    }
 }
 
 
