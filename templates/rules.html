@@ -2,187 +2,499 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Grammar Rules</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<title>MindJump Grammar Rules</title>
 
 <style>
+
 body{
 margin:0;
-font-family:Inter;
-background:#0f172a;
+font-family:Inter, Arial;
+background:linear-gradient(135deg,#4f46e5,#22c55e);
+color:white;
+display:flex;
+height:100vh;
+overflow:hidden;
+}
+
+/* GLASS PANELS */
+.sidebar, .right{
+backdrop-filter: blur(15px);
+background:rgba(0,0,0,0.25);
+border:1px solid rgba(255,255,255,0.1);
+overflow-y:auto;
+}
+
+/* LEFT */
+.sidebar{
+width:300px;
+padding:20px;
+}
+
+h2{
+font-size:20px;
+margin-bottom:10px;
 color:white;
 }
 
-.back{
+.item{
+padding:14px;
+margin:8px 0;
+background:rgba(255,255,255,0.12);
+border-radius:14px;
+cursor:pointer;
+font-weight:700;
+transition:0.2s;
+}
+
+.item:hover{
+background:white;
+color:black;
+transform:scale(1.03);
+}
+
+/* RIGHT */
+.right{
+width:340px;
+padding:20px;
+background:rgba(0,0,0,0.25);
+backdrop-filter: blur(15px);
+overflow-y:auto;
+
+display:flex;
+flex-direction:column;
+position:relative;
+}
+
+.right::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.25);
+z-index:0;
+}
+
+.tense, .coming-panel, h2{
+position:relative;
+z-index:1;
+}
+
+
+.tense{
+padding:14px;
+margin:8px 0;
+background:rgba(255,255,255,0.12);
+border-radius:14px;
+cursor:pointer;
+font-size:13px;
+font-weight:700;
+transition:0.2s;
+line-height:1.3;
+}
+
+.tense:hover{
+background:white;
+color:black;
+transform:scale(1.03);
+}
+
+/* MODAL */
+.backdrop{
+display:none;
 position:fixed;
-top:20px;
-right:20px;
-background:#3b82f6;
-padding:12px 16px;
-border-radius:12px;
-text-decoration:none;
-color:white;
-font-weight:600;
-z-index:1000;
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:90px 20px;
-}
-
-h1{
-text-align:center;
-font-size:40px;
-margin-bottom:30px;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.7);
+z-index:999;
 }
 
 .card{
-background:#1e293b;
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:900px;
+max-height:90vh;
+overflow-y:auto;
+background:rgba(255,255,255,0.12);
+backdrop-filter: blur(20px);
+border:1px solid rgba(255,255,255,0.2);
 padding:25px;
-border-radius:18px;
-margin-bottom:18px;
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
+border-radius:20px;
+z-index:1000;
+}
+
+.card.active{
+display:block;
 }
 
 .title{
-color:#22c55e;
-font-size:22px;
-margin-bottom:8px;
+font-size:28px;
+margin-bottom:10px;
+font-weight:800;
 }
 
-.rule{
+.small{
 font-size:18px;
-margin-bottom:6px;
+opacity:0.85;
+margin-bottom:10px;
 }
 
-.example{
-opacity:0.8;
-font-size:16px;
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+border-radius:12px;
+overflow:hidden;
 }
+
+th,td{
+border:1px solid rgba(255,255,255,0.15);
+padding:12px;
+vertical-align:top;
+}
+
+th{
+background:rgba(0,0,0,0.3);
+color:#fbbf24;
+}
+
+td{
+background:rgba(0,0,0,0.15);
+}
+
+.coming-panel{
+flex:1;
+margin-top:20px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+border-radius:14px;
+background:rgba(255,255,255,0.08);
+backdrop-filter: blur(10px);
+text-align:center;
+font-size:60px;
+font-weight:900;
+letter-spacing:2px;
+opacity:0.8;
+}
+
+
+
+.home-btn{
+position:fixed;
+top:15px;
+right:15px;
+z-index:9999;
+
+padding:10px 14px;
+border-radius:12px;
+
+background:rgba(255,255,255,0.15);
+backdrop-filter: blur(12px);
+
+color:white;
+text-decoration:none;
+font-weight:700;
+font-size:14px;
+
+border:1px solid rgba(255,255,255,0.25);
+transition:0.2s ease;
+}
+
+.home-btn:hover{
+background:white;
+color:black;
+transform:scale(1.05);
+}
+
+
 </style>
 </head>
 
 <body>
 
-<a href="/" class="back">⬅ Back</a>
+<div class="backdrop" id="backdrop" onclick="closeRule()"></div>
 
-<div class="container">
+<!-- LEFT -->
+<div class="sidebar">
+<h2>🔮 Conditionals</h2>
+<div class="item" onclick="openRule('cond0')">Zero Conditional</div>
+<div class="item" onclick="openRule('cond1')">First Conditional</div>
+<div class="item" onclick="openRule('cond2')">Second Conditional</div>
+<div class="item" onclick="openRule('cond3')">Third Conditional</div>
+    <div class="item" onclick="openRule('cond4')">Mixed Conditional</div>
+</div>
 
-<h1>📘 12 English Tenses and Conditionals</h1>
+<!-- RIGHT -->
+<div class="right">
 
-<!-- 1 -->
-<div class="card">
+<h2>⏳ Tenses</h2>
+
+<div class="tense" onclick="openRule('present_simple')">Present Simple</div>
+<div class="tense" onclick="openRule('present_continuous')">Present Continuous</div>
+<div class="tense" onclick="openRule('present_perfect')">Present Perfect</div>
+<div class="tense" onclick="openRule('present_perfect_cont')">Present Perfect Continuous</div>
+
+<div class="tense" onclick="openRule('past_simple')">Past Simple</div>
+<div class="tense" onclick="openRule('past_continuous')">Past Continuous</div>
+<div class="tense" onclick="openRule('past_perfect')">Past Perfect</div>
+<div class="tense" onclick="openRule('past_perfect_cont')">Past Perfect Continuous</div>
+
+<div class="tense" onclick="openRule('future_simple')">Future Simple</div>
+<div class="tense" onclick="openRule('future_continuous')">Future Continuous</div>
+<div class="tense" onclick="openRule('future_perfect')">Future Perfect</div>
+<div class="tense" onclick="openRule('future_perfect_cont')">Future Perfect Continuous</div>
+
+</div>
+
+<!-- ================= TENSES ================= -->
+
+<div class="card" id="present_simple">
 <div class="title">Present Simple</div>
-<div class="rule">Subject + V(s/es)</div>
-<div class="example">She works every day.</div>
+<div class="small"> Описывает регулярные, привычные действия, факты или расписания.</div>
+<table><tr><th>
+S + V / V-(e)s</th><th>
+S + do / does + not + V</th><th>
+Do / Does + S + V?</th></tr>
+<tr><td>I work<br>She works<br>They work</td><td>I don’t work<br>She doesn’t work<br>They don’t work</td><td>Do I work?<br>Does she work?<br>Do they work?</td></tr>
+</table>
 </div>
 
-<!-- 2 -->
-<div class="card">
+<div class="card" id="present_continuous">
 <div class="title">Present Continuous</div>
-<div class="rule">am/is/are + V-ing</div>
-<div class="example">He is reading now.</div>
+    <div class="small">Описывает действие, происходящее непосредственно в момент речи или в настоящий период времени.</div>
+<table><tr><th> S + am / is / are + V-ing</th><th> S + am / is / are + not + V-ing</th><th>Am / Is / Are + S + V-ing?</th></tr>
+<tr><td>I am working<br>She is working<br>They are working</td><td>I am not working<br>She is not working<br>They are not working</td><td>Am I working?<br>Is she working?<br>Are they working?</td></tr>
+</table>
 </div>
 
-<!-- 3 -->
-<div class="card">
+<div class="card" id="present_perfect">
 <div class="title">Present Perfect</div>
-<div class="rule">have/has + V3</div>
-<div class="example">I have finished my work.</div>
+    <div class="small">Описывает действие, которое уже завершилось, но его результат связан с настоящим моментом (важен результат, а не время).</div>
+<table><tr><th>S + have / has + V3 / V-ed</th><th>S + have / has + not + V3 / V-ed</th><th>ave / Has + S + V3 / V-ed?</th></tr>
+<tr><td>I have done<br>She has done<br>They have done</td><td>I haven’t done<br>She hasn’t done<br>They haven’t done</td><td>Have I done?<br>Has she done?<br>Have they done?</td></tr>
+</table>
 </div>
 
-<!-- 4 -->
-<div class="card">
+<div class="card" id="present_perfect_cont">
 <div class="title">Present Perfect Continuous</div>
-<div class="rule">have/has been + V-ing</div>
-<div class="example">She has been studying for 2 hours.</div>
+    <div class="small">Описывает длительное действие, которое началось в прошлом и либо все еще продолжается, либо только что закончилось.</div>
+<table><tr><th>S + have / has + been + V-ing</th><th> S + have / has + not + been + V-ing</th><th> Have / Has + S + been + V-ing?</th></tr>
+<tr><td>I have been working<br>She has been working<br>They have been working</td><td>I haven’t been working<br>She hasn’t been working<br>They haven’t been working</td><td>Have I been working?<br>Has she been working?<br>Have they been working?</td></tr>
+</table>
 </div>
 
-<!-- 5 -->
-<div class="card">
-<div class="title">Past Simple</div>
-<div class="rule">V2</div>
-<div class="example">I visited London.</div>
-</div>
+<!-- ================= CONDITIONALS ================= -->
 
-<!-- 6 -->
-<div class="card">
-<div class="title">Past Continuous</div>
-<div class="rule">was/were + V-ing</div>
-<div class="example">They were playing football.</div>
-</div>
-
-<!-- 7 -->
-<div class="card">
-<div class="title">Past Perfect</div>
-<div class="rule">had + V3</div>
-<div class="example">She had left before I came.</div>
-</div>
-
-<!-- 8 -->
-<div class="card">
-<div class="title">Past Perfect Continuous</div>
-<div class="rule">had been + V-ing</div>
-<div class="example">He had been working all day.</div>
-</div>
-
-<!-- 9 -->
-<div class="card">
-<div class="title">Future Simple</div>
-<div class="rule">will + V</div>
-<div class="example">I will call you.</div>
-</div>
-
-<!-- 10 -->
-<div class="card">
-<div class="title">Future Continuous</div>
-<div class="rule">will be + V-ing</div>
-<div class="example">She will be working tomorrow.</div>
-</div>
-
-<!-- 11 -->
-<div class="card">
-<div class="title">Future Perfect</div>
-<div class="rule">will have + V3</div>
-<div class="example">I will have finished by 5 PM.</div>
-</div>
-
-<!-- 12 -->
-<div class="card">
-<div class="title">Future Perfect Continuous</div>
-<div class="rule">will have been + V-ing</div>
-<div class="example">He will have been studying for 3 hours.</div>
-</div>
-
-    <!-- CONDITIONALS -->
-
-<div class="card">
+<div class="card" id="cond0">
 <div class="title">Zero Conditional</div>
-<div class="rule">If + Present Simple, Present Simple</div>
-<div class="example">If you heat water, it boils.</div>
+<div class="small">Используется для описания фактов, научных истин, общеизвестных правил или привычек. Действие происходит всегда, если выполняется условие.</div>
+<table>
+<tr><th>Rule</th><th>Example</th></tr>
+<tr>
+<td>If + Present Simple,...Present Simple...</td>
+<td>f you freeze water, it becomes a solid.</td>
+</tr>
+</table>
 </div>
 
-<div class="card">
+
+<div class="card" id="cond1">
 <div class="title">First Conditional</div>
-<div class="rule">If + Present Simple, will + V</div>
-<div class="example">If it rains, I will stay at home.</div>
+<div class="small">Используется для реальных или очень вероятных ситуаций в будущем. Условие вполне может быть выполнено.</div>
+<table>
+<tr><th>Rule</th><th>Example</th></tr>
+<tr>
+<td>If + Present Simple, ... Future Simple (will/can/may + Verb)</td>
+<td>If I study, I will pass my exams easily</td>
+</tr>
+</table>
 </div>
 
-<div class="card">
+<div class="card" id="cond2">
 <div class="title">Second Conditional</div>
-<div class="rule">If + Past Simple, would + V</div>
-<div class="example">If I were rich, I would travel the world.</div>
+<div class="small">Используется для гипотетических, маловероятных или нереальных ситуаций в настоящем или будущем. Это «мечты» или «предположения».</div>
+<table>
+<tr><th>Rule</th><th>Example</th></tr>
+<tr>
+<td>If + Past Simple, ... would + V.</td>
+<td>If I won a million dollars, I would buy a house</td>
+</tr>
+</table>
 </div>
 
-<div class="card">
+<div class="card" id="cond3">
 <div class="title">Third Conditional</div>
-<div class="rule">If + Past Perfect, would have + V3</div>
-<div class="example">If I had studied, I would have passed the exam.</div>
-</div>
+<div class="small">Используется для нереальных ситуаций в прошлом. Это «сожаления» о том, что уже случилось или не случилось.</div>
+<table>
+<tr><th>Rule</th><th>Example</th></tr>
+<tr>
+<td> If + Past Perfect, ... would have + V3 (Past Participle).</td>
+<td>If I had studied harder, I would have passed the exam</td>
+</tr>
+</table>
 </div>
 
+<div class="card" id="cond4">
+<div class="title">Mixed Conditionals</div>
+<div class="small">Сочетают в себе элементы 2-го и 3-го типов. Используются, когда условие относится к прошлому, а результат к настоящему (или наоборот).</div>
+<table>
+<tr><th>Rule</th><th>Example</th></tr>
+<tr>
+<td>If + Past Perfect, ... would + V.
+If + Past Simple, would have + V3 (Participle II).</td>
+<td>If I had taken the map, I wouldn't be lost now.
+If I were you, I would have bought that car.</td>
+</tr>
+</table>
+</div>
+
+<!-- PAST SIMPLE -->
+<div class="card" id="past_simple">
+<div class="title">Past Simple</div>
+<div class="small">Описывает факт совершения действия в прошлом (завершено и не связано с настоящим).</div>
+<table>
+<tr><th> S + V2 / V-ed</th><th>S + did + not + V</th><th>Did + S + V?</th></tr>
+<tr>
+<td>I worked<br>She worked<br>They worked</td>
+<td>I didn’t work<br>She didn’t work<br>They didn’t work</td>
+<td>Did I work?<br>Did she work?<br>Did they work?</td>
+</tr>
+</table>
+</div>
+
+<!-- PAST CONTINUOUS -->
+<div class="card" id="past_continuous">
+<div class="title">Past Continuous</div>
+<div class="small">Описывает длительное действие, которое происходило в определенный момент или промежуток в прошлом.</div>
+<table>
+<tr><th>S + was / were + V-ing</th><th>S + was / were + not + V-ing</th><th>Was / Were + S + V-ing?</th></tr>
+<tr>
+<td>I was working<br>She was working<br>They were working</td>
+<td>I wasn’t working<br>She wasn’t working<br>They weren’t working</td>
+<td>Was I working?<br>Was she working?<br>Were they working?</td>
+</tr>
+</table>
+</div>
+
+<!-- PAST PERFECT -->
+<div class="card" id="past_perfect">
+<div class="title">Past Perfect</div>
+<div class="small">Описывает действие, которое завершилось до определенного момента или другого действия в прошлом</div>
+<table>
+<tr><th>S + had + V3 / V-ed</th><th>S + had + not + V3 / V-ed</th><th>Had + S + V3 / V-ed?Future Perfect</th></tr>
+<tr>
+<td>I had done<br>She had done<br>They had done</td>
+<td>I hadn’t done<br>She hadn’t done<br>They hadn’t done</td>
+<td>Had I done?<br>Had she done?<br>Had they done?</td>
+</tr>
+</table>
+</div>
+
+<!-- PAST PERFECT CONTINUOUS -->
+<div class="card" id="past_perfect_cont">
+<div class="title">Past Perfect Continuous</div>
+<div class="small">Описывает длительное действие, которое началось в прошлом, длилось какое-то время и завершилось до другого действия в прошлом.</div>
+<table>
+<tr><th>S + had + been + V-ing</th><th>S + had + not + been + V-ing</th><th>Had + S + been + V-ing?</th></tr>
+<tr>
+<td>I had been working<br>She had been working<br>They had been working</td>
+<td>I hadn’t been working<br>She hadn’t been working<br>They hadn’t been working</td>
+<td>Had I been working?<br>Had she been working?<br>Had they been working?</td>
+</tr>
+</table>
+</div>
+
+<!-- FUTURE SIMPLE -->
+<div class="card" id="future_simple">
+<div class="title">Future Simple</div>
+<div class="small">Описывает одиночное действие или факт в будущем.</div>
+<table>
+<tr><th> S + will + V</th><th>S + will + not + V</th><th>Will + S + V?</th></tr>
+<tr>
+<td>I will work<br>She will work<br>They will work</td>
+<td>I won’t work<br>She won’t work<br>They won’t work</td>
+<td>Will I work?<br>Will she work?<br>Will they work?</td>
+</tr>
+</table>
+</div>
+
+<!-- FUTURE CONTINUOUS -->
+<div class="card" id="future_continuous">
+<div class="title">Future Continuous</div>
+<div class="small">Описывает действие, которое будет длиться в определенный момент в будущем.</div>
+<table>
+<tr><th> S + will be + V-ing</th><th>S + will + not + be + V-ing</th><th>Will + S + be + V-ing?</th></tr>
+<tr>
+<td>I will be working<br>She will be working<br>They will be working</td>
+<td>I won’t be working<br>She won’t be working<br>They won’t be working</td>
+<td>Will I be working?<br>Will she be working?<br>Will they be working?</td>
+</tr>
+</table>
+</div>
+
+<!-- FUTURE PERFECT -->
+<div class="card" id="future_perfect">
+<div class="title">Future Perfect</div>
+<div class="small">Описывает действие, которое завершится до определенного момента в будущем.</div>
+<table>
+<tr><th>S + will have + V3 / V-ed</th><th> S + will + not + have + V3 / V-ed</th><th> Will + S + have + V3 / V-ed?</th></tr>
+<tr>
+<td>I will have done<br>She will have done<br>They will have done</td>
+<td>I won’t have done<br>She won’t have done<br>They won’t have done</td>
+<td>Will I have done?<br>Will she have done?<br>Will they have done?</td>
+</tr>
+</table>
+</div>
+
+<!-- FUTURE PERFECT CONTINUOUS -->
+<div class="card" id="future_perfect_cont">
+<div class="title">Future Perfect Continuous</div>
+<div class="small">Описывает длительное действие, которое начнется до определенного момента в будущем и все еще будет продолжаться в этот момент.</div>
+<table>
+<tr><th> S + will have been + V-ing</th><th>S + will + not + have been + V-ing</th><th>Will + S + have been + V-ing?</th></tr>
+<tr>
+<td>I will have been working<br>She will have been working<br>They will have been working</td>
+<td>I won’t have been working<br>She won’t have been working<br>They won’t have been working</td>
+<td>Will I have been working?<br>Will she have been working?<br>Will they have been working?</td>
+</tr>
+</table>
+</div>
+
+<div class="coming-panel">
+  <div>🚀 Coming soon</div>
+  <p>New grammar modules are in development</p>
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+function openRule(id){
+document.getElementById("backdrop").style.display="block";
+document.querySelectorAll(".card").forEach(c=>c.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+
+function closeRule(){
+document.getElementById("backdrop").style.display="none";
+document.querySelectorAll(".card").forEach(c=>c.classList.remove("active"));
+}
+
+
+
+</script>
+<a href="/" class="home-btn">Back to Main Menu</a>
 </body>
+
 </html>
