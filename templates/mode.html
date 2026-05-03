@@ -2,9 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Result</title>
+<title>Choose Mode</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
@@ -12,68 +11,68 @@
 body{
 margin:0;
 font-family:Inter;
-background:linear-gradient(135deg,#22c55e,#4f46e5);
+background:linear-gradient(135deg,#6366f1,#22c55e);
 color:white;
 display:flex;
 justify-content:center;
 align-items:center;
-min-height:100vh;
+height:100vh;
+}
+
+/* container */
+.container{
+display:flex;
+gap:20px;
 }
 
 /* card */
 .card{
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(15px);
-padding:30px;
+width:220px;
+height:200px;
 border-radius:25px;
-width:420px;
-text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,0.3);
-}
-
-/* score */
-.score{
-font-size:60px;
-font-weight:800;
-margin:20px 0;
-}
-
-/* xp */
-.xp{
-background:#22c55e;
-padding:10px;
-border-radius:10px;
-margin-bottom:20px;
-}
-
-/* answers */
-.answers{
-text-align:left;
-max-height:250px;
-overflow:auto;
-margin-top:15px;
-}
-
-.item{
-background:rgba(255,255,255,0.1);
-padding:10px;
-border-radius:10px;
-margin-bottom:8px;
-}
-
-.ok{border-left:5px solid #22c55e;}
-.bad{border-left:5px solid #ef4444;}
-
-button{
-margin-top:20px;
-padding:12px;
-width:100%;
-border:none;
-border-radius:12px;
-background:#3b82f6;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-decoration:none;
 color:white;
 font-weight:700;
-cursor:pointer;
+font-size:20px;
+transition:0.25s;
+box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* colors */
+.translation{
+background:linear-gradient(135deg,#3b82f6,#06b6d4);
+}
+
+.grammar{
+background:linear-gradient(135deg,#22c55e,#4ade80);
+}
+
+/* hover */
+.card:hover{
+transform:scale(1.1) rotate(-1deg);
+}
+
+/* icon */
+.icon{
+font-size:40px;
+margin-bottom:10px;
+}
+
+/* back */
+.back{
+position:fixed;
+top:20px;
+right:20px;
+background:white;
+color:black;
+padding:10px 15px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
 }
 
 </style>
@@ -81,27 +80,19 @@ cursor:pointer;
 
 <body>
 
-<div class="card">
+<a href="/" class="back">⬅</a>
 
-<h2>🎉 Result</h2>
+<div class="container">
 
-<div class="score">{{ score }}/10</div>
+<a href="/mode/translation" class="card translation">
+<div class="icon">🌍</div>
+Translation
+</a>
 
-<div class="xp">+{{ xp }} XP</div>
-
-<div class="answers">
-{% for r in results %}
-<div class="item {% if r.ok %}ok{% else %}bad{% endif %}">
-<b>{{ r.question }}</b><br>
-You: {{ r.user }}<br>
-Correct: {{ r.correct }}
-</div>
-{% endfor %}
-</div>
-
-<form action="/">
-<button>Main Menu</button>
-</form>
+<a href="/mode/grammar" class="card grammar">
+<div class="icon">📘</div>
+Grammar
+</a>
 
 </div>
 
